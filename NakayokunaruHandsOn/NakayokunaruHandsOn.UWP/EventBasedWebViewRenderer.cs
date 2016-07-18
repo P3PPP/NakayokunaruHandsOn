@@ -18,25 +18,24 @@ namespace NakayokunaruHandsOn.UWP
 	{
 		protected override void OnElementChanged(ElementChangedEventArgs<EventBasedWebView> e)
 		{
-			if (Control == null)
+			if (e.NewElement != null)
 			{
-				var nativeControl = new Windows.UI.Xaml.Controls.WebView();
-				nativeControl.Source = new Uri("http://ticktack.hatenablog.jp/entry/2016/06/11/124751");
-				SetNativeControl(nativeControl);
+				if (Control == null)
+				{
+					var nativeControl = new Windows.UI.Xaml.Controls.WebView();
+					nativeControl.Source = new Uri("http://ticktack.hatenablog.jp/entry/2016/06/11/124751");
+					SetNativeControl(nativeControl);
+				}
+				e.NewElement.GoBackRequested += OnGoBackRequested;
+				e.NewElement.GoForwardRequested += OnGoForwardRequested;
+				e.NewElement.EvalRequested += OnEvalRequested;
 			}
 
 			if (e.OldElement != null)
 			{
-				Element.GoBackRequested -= OnGoBackRequested;
-				Element.GoForwardRequested -= OnGoForwardRequested;
-				Element.EvalRequested -= OnEvalRequested;
-			}
-
-			if (e.NewElement != null)
-			{
-				Element.GoBackRequested += OnGoBackRequested;
-				Element.GoForwardRequested += OnGoForwardRequested;
-				Element.EvalRequested += OnEvalRequested;
+				e.OldElement.GoBackRequested -= OnGoBackRequested;
+				e.OldElement.GoForwardRequested -= OnGoForwardRequested;
+				e.OldElement.EvalRequested -= OnEvalRequested;
 			}
 
 			base.OnElementChanged(e);

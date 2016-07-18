@@ -18,22 +18,14 @@ namespace NakayokunaruHandsOn.UWP
 	{
 		protected override void OnElementChanged(ElementChangedEventArgs<MessageBasedWebView> e)
 		{
-			if (Control == null)
-			{
-				var nativeControl = new Windows.UI.Xaml.Controls.WebView();
-				nativeControl.Source = new Uri("http://ticktack.hatenablog.jp/entry/2016/06/11/124751");
-				SetNativeControl(nativeControl);
-			}
-
-			if (e.OldElement != null)
-			{
-				MessagingCenter.Unsubscribe<MessageBasedWebView>(this, MessageBasedWebView.GoBackKey);
-				MessagingCenter.Unsubscribe<MessageBasedWebView>(this, MessageBasedWebView.GoForwardKey);
-				MessagingCenter.Unsubscribe<MessageBasedWebView, string>(this, MessageBasedWebView.EvalKey);
-			}
-
 			if (e.NewElement != null)
 			{
+				if (Control == null)
+				{
+					var nativeControl = new Windows.UI.Xaml.Controls.WebView();
+					nativeControl.Source = new Uri("http://ticktack.hatenablog.jp/entry/2016/06/11/124751");
+					SetNativeControl(nativeControl);
+				}
 				MessagingCenter.Subscribe<MessageBasedWebView>(
 					this,
 					MessageBasedWebView.GoBackKey,
@@ -49,6 +41,13 @@ namespace NakayokunaruHandsOn.UWP
 					MessageBasedWebView.EvalKey,
 					(sender, args) => OnEvalRequested(args),
 					e.NewElement);
+			}
+
+			if (e.OldElement != null)
+			{
+				MessagingCenter.Unsubscribe<MessageBasedWebView>(this, MessageBasedWebView.GoBackKey);
+				MessagingCenter.Unsubscribe<MessageBasedWebView>(this, MessageBasedWebView.GoForwardKey);
+				MessagingCenter.Unsubscribe<MessageBasedWebView, string>(this, MessageBasedWebView.EvalKey);
 			}
 
 			base.OnElementChanged(e);
