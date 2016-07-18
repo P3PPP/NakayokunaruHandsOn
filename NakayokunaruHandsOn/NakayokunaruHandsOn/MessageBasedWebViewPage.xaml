@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-			 xmlns:local="clr-namespace:NakayokunaruHandsOn"
+             xmlns:local="clr-namespace:NakayokunaruHandsOn"
+             Title="MessageBasedWebView"
              x:Class="NakayokunaruHandsOn.MessageBasedWebViewPage">
 	<Grid>
 		<Grid.RowDefinitions>
@@ -12,13 +13,13 @@
 
 		<local:MessageBasedWebView Grid.Row="0" x:Name="webView" />
 
-		<StackLayout Grid.Row="1" Orientation="Horizontal">
+		<StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
 			<Button Text="戻る" Clicked="GoBackClicked"/>
 			<Button Text="進む" Clicked="GoForwardClicked"/>
-		</StackLayout>
-		<StackLayout Grid.Row="2" Orientation="Horizontal">
-			<Entry Text="alert('Eval test')" x:Name="entry" HorizontalOptions="FillAndExpand"/>
-			<Button Text="Eval" Clicked="EvalClicked"/>
-		</StackLayout>
+    </StackLayout>
+    <StackLayout Grid.Row="2" Orientation="Horizontal">
+      <Entry Text="location.reload()" x:Name="entry" HorizontalOptions="FillAndExpand"/>
+      <Button Text="Eval" Clicked="EvalClicked"/>
+    </StackLayout>
 	</Grid>
 </ContentPage>
