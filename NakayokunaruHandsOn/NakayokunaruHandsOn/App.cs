@@ -11,20 +11,41 @@ namespace NakayokunaruHandsOn
 	{
 		public App()
 		{
-			// The root page of your application
-			MainPage = new ContentPage
+			var rootPage = new ContentPage();
+
+			var toRoundedBoxView = new Button
 			{
-				Content = new StackLayout
-				{
-					VerticalOptions = LayoutOptions.Center,
-					Children = {
-						new Label {
-							HorizontalTextAlignment = TextAlignment.Center,
-							Text = "Welcome to Xamarin Forms!"
-						}
-					}
-				}
+				Text = "RoundedBoxView"
 			};
+			toRoundedBoxView.Clicked += async (s, e) =>
+				await rootPage.Navigation.PushAsync(new RoundedBoxViewPage());
+
+			var toEventBasedWebView = new Button
+			{
+				Text = "EventBasedWebView"
+			};
+			toEventBasedWebView.Clicked += async (s, e) =>
+				await rootPage.Navigation.PushAsync(new EventBasedWebViewPage());
+
+			var toMessageBasedWebView = new Button
+			{
+				Text = "MessageBasedWebView"
+			};
+			toMessageBasedWebView.Clicked += async (s, e) =>
+				await rootPage.Navigation.PushAsync(new MessageBasedWebViewPage());
+
+			rootPage.Content = new StackLayout
+			{
+				VerticalOptions = LayoutOptions.Center,
+				Children =
+				{
+					toRoundedBoxView,
+					toEventBasedWebView,
+					toMessageBasedWebView,
+				},
+			};
+
+			MainPage = new NavigationPage(rootPage);
 		}
 
 		protected override void OnStart()
