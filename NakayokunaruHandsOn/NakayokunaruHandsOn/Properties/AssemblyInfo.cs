@@ -32,3 +32,4 @@ using System.Runtime.InteropServices;
 
 [assembly: InternalsVisibleTo("NakayokunaruHandsOn.iOS")]
 [assembly: InternalsVisibleTo("NakayokunaruHandsOn.Droid")]
+[assembly: InternalsVisibleTo("NakayokunaruHandsOn.UWP")]
