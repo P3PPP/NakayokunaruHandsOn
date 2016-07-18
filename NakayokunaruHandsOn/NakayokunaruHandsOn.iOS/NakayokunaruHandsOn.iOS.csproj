@@ -10,7 +10,7 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>NakayokunaruHandsOn.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>NakayokunaruHandsOniOS</AssemblyName>
+    <AssemblyName>NakayokunaruHandsOn.iOS</AssemblyName>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
