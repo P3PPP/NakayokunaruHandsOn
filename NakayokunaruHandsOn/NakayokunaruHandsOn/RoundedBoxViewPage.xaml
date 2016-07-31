@@ -4,11 +4,13 @@
              xmlns:local="clr-namespace:NakayokunaruHandsOn"
              Title="RoundedBoxView"
              x:Class="NakayokunaruHandsOn.RoundedBoxViewPage">
-	<local:RoundedBoxView x:Name="roundedBox"
-						  HorizontalOptions="Center"
-						  VerticalOptions="Center"
-						  HeightRequest="100"
-						  WidthRequest="100"
-						  CornerRadius="10"
-						  />
+	<StackLayout HorizontalOptions="Center"
+				 VerticalOptions="Center">
+		<local:RoundedBoxView x:Name="roundedBox"
+							  HeightRequest="100"
+							  WidthRequest="100"
+							  CornerRadius="10"
+							  Clicked="OnClicked"/>
+		<Button Text="Next Color" Clicked="OnClicked" />
+	</StackLayout>
 </ContentPage>

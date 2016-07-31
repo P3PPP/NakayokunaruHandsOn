@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
 using System.ComponentModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
@@ -24,11 +19,6 @@ namespace NakayokunaruHandsOn.iOS
 				tapGesuture = new UITapGestureRecognizer(() => Element?.SendClick());
 				nativeControl.AddGestureRecognizer(tapGesuture);
 				SetNativeControl(nativeControl);
-			}
-
-			if (e.OldElement != null)
-			{
-
 			}
 
 			if (e.NewElement != null)
