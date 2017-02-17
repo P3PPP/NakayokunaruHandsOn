@@ -7,9 +7,7 @@ namespace NakayokunaruHandsOn
 	{
 		#region CornerRadius BindableProperty
 		public static readonly BindableProperty CornerRadiusProperty =
-			BindableProperty.Create(nameof(CornerRadius), typeof(double), typeof(RoundedBoxView), 5.0,
-				propertyChanged: (bindable, oldValue, newValue) =>
-					((RoundedBoxView)bindable).CornerRadius = (double)newValue);
+			BindableProperty.Create(nameof(CornerRadius), typeof(double), typeof(RoundedBoxView), 5.0);
 
 		public double CornerRadius
 		{
@@ -20,9 +18,7 @@ namespace NakayokunaruHandsOn
 
 		#region Color BindableProperty
 		public static readonly BindableProperty ColorProperty =
-			BindableProperty.Create(nameof(Color), typeof(Color), typeof(RoundedBoxView), Color.Accent,
-				propertyChanged: (bindable, oldValue, newValue) =>
-					((RoundedBoxView)bindable).Color = (Color)newValue);
+			BindableProperty.Create(nameof(Color), typeof(Color), typeof(RoundedBoxView), Color.Accent);
 
 		public Color Color
 		{
